@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoExplore Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+</head>
+<body class="dashboard">
+
+  <header style="background-color: rgba(240, 248, 255, 0.418);">
+    <h1>EcoExplore Rewards</h1>
+    <div class="logoherbb">
+      <div id="walletDisplay" class="wallet-display">0x...</div>
+      <div class="ecologobbh">
+        <img src="" alt="">
+      </div>
+    </div>
+  </header>
+
+  <section class="eco-balance-card">
+    <p>Your EcoPoints Balance</p>
+    <h2 id="ecoBalance"></h2>
+  </section>
+
+  <section class="feature-card">
+    <div>
+        <h3>Set Your Location</h3>
+        <p>Pin your location to get personalized challenges.</p>
+    </div>
+    <button id="pinLocationBtn">📍 Pin Location</button>
+    <div class="locationjhggsd"><p id="userLocation" class="small-text" style="color: rgb(255, 255, 255); font-size: 0.9rem;"></p></div>
+  </section>
+
+  <section class="feature-cardds" id="challengesbutton">
+    <h3>Complete Challenges</h3>
+    <p style="margin-top: 5px;">take on fun challenges for bonus points.</p>
+  </section>
+ 
+      <div class="availlist8875df" id="availlist8875dffdfdd">
+        <div class="rehgva">
+            <p class="d7hh3">Available Challenges</p>
+            <p class="ddggd4r">Engage in challenges and sustainable activities to boost your balance</p>
+
+            <div class="listchall87unbd" id="idbutton1 buttonhhd" >
+                <div class="iconlistchaa894hg">
+                    <img src="" alt="loadimg...">
+                </div>
+                <div class="yhbhtjswr">
+                    <p id="titleavailavlechaaa">Shop at The Green Cafe</p>
+                    <p id="comment777dd">Support local cafes by making a purchase.</p>
+                    <p id="locationlistchall">123vMan St. City Center</p>
+                </div>
+            </div>
+
+            <div class="listchall87unbd" id="idbutton2 buttonhhd">
+                <div class="iconlistchaa894hg">
+                    <img src="" alt="loadimg...">
+                </div>
+                <div class="yhbhtjswr">
+                    <p id="titleavailavlechaaa">Recycle at Downtown Bin #3</p>
+                    <p id="comment777dd">Earn points by recycling at designated spots.</p>
+                    <p id="locationlistchall">Downtown Bin #3</p>
+                </div>
+            </div>
+
+            <div class="listchall87unbd" id="idbutton3 buttonhhd">
+                <div class="iconlistchaa894hg">
+                    <img src="" alt="loadimg...">
+                </div>
+                <div class="yhbhtjswr">
+                    <p id="titleavailavlechaaa">Visit Ancient Ruins</p>
+                    <p id="comment777dd">Check in at the historical site to earn points</p>
+                    <p id="locationlistchall">Ancient Rules Park</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <section class="rewards-section">
+    <h2>Redeem Rewards <a href="#">View All →</a></h2>
+  </section>
+  <div class="Redeemboxareaei8sibd">
+    <div class="arearewardv38hbgew" id="areabox1">
+      <div class="rewards-sectiongggiuy">
+        <p id="rewards-section3q8e5v">₱100 GrabCar Voucher </p>
+      </div>
+      <p id="titlereward6bnbnbeyywearg">Metro Manila</p>
+      <p id="EcoPoints9nw8c4tqh">500 EcoPoints</p>
+      <div class="fe4wvfgd">
+        <button class="buttonredeem666d" onclick="Redeem(0)">Redeem</button>
+      </div>
+    </div>
+        <div class="arearewardv38hbgew" id="areabox2">
+      <div class="rewards-sectiongggiuy">
+        <p id="rewards-section3q8e5v">₱200 Bus Fare Load</p>
+      </div>
+      <p id="titlereward6bnbnbeyywearg">Victory Liner, etc.</p>
+      <p id="EcoPoints9nw8c4tqh">1000 EcoPoints</p>
+      <div class="fe4wvfgd">
+        <button class="buttonredeem666d" onclick="Redeem(1)">Redeem</button>
+      </div>
+    </div>
+        <div class="arearewardv38hbgew" id="areabox3">
+      <div class="rewards-sectiongggiuy">
+        <p id="rewards-section3q8e5v">1-Night Stay</p>
+      </div>
+      <p id="titlereward6bnbnbeyywearg">Budget Hotel</p>
+      <p id="EcoPoints9nw8c4tqh">3000 EcoPoints</p>
+      <div class="fe4wvfgd">
+        <button class="buttonredeem666d" onclick="Redeem(2)">Redeem</button>
+      </div>
+    </div>
+</div>
+
+<div class="pophhhss" id="appearbox">
+	<div class="popmeeehh">
+		<div class="arearewardv38hbgewff">
+      		<div class="rewards-sectiongggiuy">
+        		<p id="rewardsfffs">Loading...</p>
+      		</div>
+      		<p id="titlerewa666s">Loading...</p>
+      		<p id="EcoPointttd">Loading...</p>
+      		<div class="fe4wvfgd">
+				<button class="buttoncanceltab" onclick="cancel()">Cancel</button>
+        		<button class="buttonredeem666d" onclick="confirme()">confirm</button>
+			</div>
+      	</div>
+    </div>
+</div>
+</body>
+  <script>
+	let signerContract;
+	let walletAddress;
+	window.addEventListener('DOMContentLoaded', async () => {
+  		walletAddress = localStorage.getItem('walletAddress');
+  		document.getElementById('walletDisplay').innerText = walletAddress;
+
+  	const balanceDisplay = document.getElementById('ecoBalance');
+  	const contractAddress = "0x1829f248a78281c3D57ec05Bfb8a7a1D2169032f";
+      const contractABI = [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transfer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		];
+
+  	if (walletAddress && balanceDisplay) {
+    	const provider = new ethers.providers.Web3Provider(window.ethereum);
+    	const signer = provider.getSigner();
+    	signerContract = new ethers.Contract(contractAddress, contractABI, signer); // ✅ assign signerContract
+
+    	const rawBalance = await signerContract.balanceOf(walletAddress);
+    	const formatted = ethers.utils.formatUnits(rawBalance, 0);
+    	balanceDisplay.innerText = `${formatted} ECO`;
+  	}
+});
+
+	let challengesbutton = 0;
+	const challengesbuttondd = document.getElementById("challengesbutton")
+	challengesbuttondd.onclick = () => {
+  		challengesbutton++;
+  		if(challengesbutton === 1) {
+    		document.getElementById("availlist8875dffdfdd").style.display = "flex";
+    		document.getElementById("availlist8875dffdfdd").style.left = '-0px';
+  		}
+	}
+
+// ==========================
+// Pin Location Functionality
+// ==========================
+
+let reward = [
+	{rewardsec: "₱100 GrabCar Voucher", title: "Metro Manila", ecop: 500},
+	{rewardsec: "₱200 Bus Fare Load", title: "Victory Liner, etc.", ecop: 1000},
+	{rewardsec: "1-Night Stay", title: "Budget Hotel", ecop: 3000}
+	
+]
+
+function Redeem(num) {
+	for(let i = 0; i < reward.length; i++) {
+		if(num === i) {
+			document.getElementById("appearbox").style.display = 'flex';
+			document.getElementById("rewardsfffs").innerText = reward[i].rewardsec;
+			document.getElementById("titlerewa666s").innerText = reward[i].title;
+			let points = document.getElementById("EcoPointttd").innerText = reward[i].ecop;
+			//confirm(reward[i].ecop);
+		}
+	}
+	return points;
+}
+
+function cancel() {
+	document.getElementById("appearbox").style.display = 'none';
+	
+}
+
+async function confirme() {
+  const points = parseInt(document.getElementById("EcoPointttd").innerText);
+
+  if (!signerContract || !walletAddress) {
+    alert("Wallet not connected or contract not initialized.");
+    return;
+  }
+
+  try {
+    const tx = await signerContract.transfer(walletAddress, points); // simulate redeem as transfer to self
+    await tx.wait();
+    alert(`✅ Redeemed! TX Hash: ${tx.hash}`);
+    document.getElementById("appearbox").style.display = 'none';
+  } catch (err) {
+    console.error("❌ Redeem failed:", err);
+    alert("❌ Redeem failed: " + err.message);
+  }
+}
+
+	const pinLocationBtn = document.getElementById('pinLocationBtn');
+	const userLocationDisplay = document.getElementById('userLocation'); // optional display
+
+	pinLocationBtn.addEventListener('click', () => {
+  	if ('geolocation' in navigator) {
+    	navigator.geolocation.getCurrentPosition(
+      	(position) => {
+        	const lat = position.coords.latitude;
+        	const lng = position.coords.longitude;
+
+        // ✅ Open Google Maps in a new tab
+        	window.open(`https://www.google.com/maps?q=${lat},${lng}`, '_blank');
+
+        // ✅ Optional: Display coordinates on page
+    if (userLocationDisplay) {
+        userLocationDisplay.innerText = `📍 Location pinned: ${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+    }
+
+        // ✅ Optional: Save location to backend or smart contract later
+    },
+      (error) => {
+        alert('❌ Location access denied or failed.');
+        console.error(error);
+    }
+    );
+  	} else {
+    	alert('❌ Geolocation not supported by this browser.');
+  	}
+	});
+
+  </script>
+  
+</body>
+</html>

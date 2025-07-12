@@ -1,0 +1,514 @@
+/* ===== General Styles ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fafae7;
+  color: #1d1d1f;
+  padding: 0;
+}
+
+/* ===== Landing Page Styles ===== */
+.card {
+  max-width: 500px;
+  margin: 5rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.icon svg {
+  width: 40px;
+  height: 40px;
+  color: #346b47;
+  margin-bottom: 1rem;
+}
+
+.welcome {
+  font-size: 1.5rem;
+  background-color: #346b47;
+  color: white;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.card h1 {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+.description {
+  font-size: 1rem;
+  color: #333;
+  margin: 1rem 0 2rem;
+}
+
+.primary-btn, .secondary-btn {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-btn {
+  background-color: #346b47;
+  color: white;
+  border: none;
+}
+
+
+.primary-btn:hover {
+  background-color: #285738;
+}
+
+.secondary-btn {
+  background-color: #f8f8f8;
+  color: #1d1d1f;
+  border: 1px solid #ddd;
+}
+
+
+
+.secondary-btn:hover {
+  background-color: #eeeeee;
+}
+
+/* ===== Dashboard Styles ===== */
+body.dashboard {
+  background-color: #ddffc1;
+}
+
+/* Header */
+header {
+  background-color: #f5f5d8;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wallet-display {
+  background-color: #ffffff;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  border: 1px solid #ddd;
+  height: 20px;
+  width: auto;
+  overflow: hidden;
+}
+
+/* EcoPoints balance section */
+.eco-balance-card {
+  background-color: #346b47;
+  color: #fff;
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.eco-balance-card p {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.eco-balance-card h2 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+#userLocation {
+  margin-top: none;
+
+}
+
+.feature-cardds {
+  background-color: #fff;
+  margin: 1rem 2rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  padding-left: 20px;}
+
+/* Feature cards */
+.feature-card {
+  background-color: #fff;
+  margin: 1rem 2rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.feature-card h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.2rem;
+}
+
+.feature-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.feature-card button,
+.feature-card div:last-child {
+  background-color: #346b47;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background-color 0.3s ease;
+}
+
+.feature-card button:hover {
+  background-color: #285738;
+}
+
+/* Section headers */
+section > h2 {
+  margin: 2rem 2rem 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Redeem Rewards */
+.rewards-section {
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rewards-section a {
+  font-size: 0.95rem;
+  color: #1d1d1f;
+  text-decoration: none;
+}
+
+.rewards-section a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.Redeemboxareaei8sibd {
+  height: 400px;
+  width: 100%;
+  background-color: #1d1d1f00;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.arearewardv38hbgew {
+  height: 90%;
+  width: 300px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 7px;
+  box-shadow: 0px 4px 10px black;
+  overflow: hidden;
+  transition: 0.2s ease-in-out;
+}
+
+.rewards-sectiongggiuy {
+  width: 100%;
+  height: 200px;
+  background-color: #a3a3a3;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 25px;
+  color: rgb(100, 100, 100) ;
+}
+
+.arearewardv38hbgew p {
+  margin-left: 10px;
+  margin-bottom: 2px;
+  margin-top: 5px;
+  
+  
+}
+
+#titlereward6bnbnbeyywearg {
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+#EcoPoints9nw8c4tqh {
+  color: #2baf57;
+  font-size: 16px;
+}
+
+.fe4wvfgd {
+  width: 100%;
+  height: 80px;
+  background-color: #1d1d1f00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.buttonredeem666d {
+  background-color: #2baf57;
+  color: white;
+  border-radius: 5px;
+  width: 90%;
+  height: 40px;
+  border: none;
+}
+
+.buttonredeem666d:active {
+  background-color: #4ae27d ;
+}
+
+.arearewardv38hbgew:hover {
+  transform: scale(1.04);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.availlist8875df {
+  width: 100%;
+  height: auto;
+  background-color: #ffffff00;
+  text-align: center;
+  display: none;
+  justify-content: center;
+  margin-top: 20px;
+  position: relative;
+  left: -1233px;
+  transition: all 0.8s ease-in-out;
+}
+
+
+.listchall87unbd {
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+
+.listchall87unbd:hover {
+  background-color: #a9f3c1;
+}
+
+.feature-cardds:active {
+  background-color: #4ae27d;
+}
+
+
+
+.d7hh3 {
+  text-align: left;
+  color: black;
+  margin: 0px;
+  font-size: 30px;
+  font-weight: bold;
+}
+.ddggd4r {
+  text-align: left;
+  color: black;
+  margin: 0px;
+  margin-bottom: 20px;
+}
+
+.rehgva {
+  width: 800px;
+  background-color: #5a141400;
+}
+
+.listchall87unbd {
+  width: 100%;
+  height: 100px;
+  background-color: #ffffff;
+  border-radius: 9px;
+  display: flex;
+  justify-content: left;
+  overflow: hidden;
+  border: solid 1px gray;
+  box-shadow: 1px 1px 5px black;
+  margin-bottom: 20px;
+}
+
+.iconlistchaa894hg {
+  width: 60px;
+  height: 100%;
+  background-color: #ffffff;
+  border-right: solid 1px gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+}
+
+.iconlistchaa894hg img {
+  width: 80%;
+}
+
+#titleavailavlechaaa {
+  font-size: 23px;
+  color: black;
+  font-weight: bold;
+}
+
+#comment777dd {
+    font-size: 15px;
+    color: rgb(94, 94, 94);
+}
+
+#locationlistchall {
+    font-size: 14px;
+    color: rgb(82, 82, 82);
+}
+
+.yhbhtjswr p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.wallet-display {
+
+}
+
+
+
+
+.ecologobbh {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  border: solid 1px gray;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoherbb {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+
+.popmeeehh {
+  position:fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  transform: scale(1.5);
+}
+
+.arearewardv38hbgewff {
+  height: 370px;
+  width: 300px;
+  background-color: #f1f1f1;
+  border-radius: 6px;
+  overflow: hidden;
+
+}
+
+.arearewardv38hbgewff button {
+  margin: 20px;
+  cursor: pointer;
+}
+.arearewardv38hbgewff p {
+  margin-left: 20px;
+}
+
+
+.wallet-display {
+
+}
+
+
+.buttoncanceltab {
+  height: 39px;
+  width: 270px;
+  background-color: #a3a3a3;
+  border: none;
+  border-radius: 6px;
+}
+
+.pophhhss {
+  display: none;
+}
+
+

@@ -1,0 +1,2 @@
+# EcoRewardExplorer
+Gamified ecotourism
